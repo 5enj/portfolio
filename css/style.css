@@ -1,0 +1,512 @@
+/* ========================
+   RESET & BASE
+======================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111111;
+  color: #F5F0E8;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* ========================
+   HEADER
+======================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 18, 20, 1) 0%,
+    rgba(17, 17, 24, 0) 100%
+  );
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ========================
+   КНОПКИ
+======================== */
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: rgba(200, 192, 176, 0.8);
+  text-decoration: none;
+  background: rgba(200, 192, 176, 0.06);
+  border: 1px solid rgba(200, 192, 176, 0.28);
+  border-radius: 20px;
+  padding: 9px 20px;
+  cursor: pointer;
+  transition:
+    color 250ms ease-out,
+    background 250ms ease-out,
+    border-color 250ms ease-out,
+    box-shadow 250ms ease-out,
+    transform 250ms ease-out;
+}
+
+.btn:hover {
+  color: rgba(200, 192, 176, 1);
+  background: rgba(200, 192, 176, 0.12);
+  border-color: rgba(200, 192, 176, 0.85);
+  box-shadow: 0 0 18px rgba(200, 192, 176, 0.25);
+  transform: scale(1.05);
+}
+
+/* ========================
+   HERO
+======================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(12px);
+  transform: scale(1.06);
+  z-index: 0;
+}
+
+.hero-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.4);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-video-toggle {
+  position: absolute;
+  top: 152px;
+  left: 32px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    rgba(29, 27, 32, 1) 0%,
+    rgba(29, 27, 32, 0.5) 100%
+  );
+  color: #F5F0E8;
+  cursor: pointer;
+  z-index: 101;
+  transition: transform 180ms ease-out, background 180ms ease-out;
+}
+
+.hero-video-toggle:hover {
+  background: radial-gradient(
+    circle at center,
+    rgba(41, 38, 45, 1) 0%,
+    rgba(41, 38, 45, 0.5) 100%
+  );
+}
+
+.hero-video-toggle.is-changing {
+  animation: video-toggle-press 280ms ease-out;
+}
+
+.hero-video-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.hero-video-icon--play,
+.hero-video-icon--pause {
+  display: none;
+}
+
+.hero-video-toggle[data-state="paused"] .hero-video-icon--play,
+.hero-video-toggle[data-state="playing"] .hero-video-icon--pause {
+  display: block;
+}
+
+@keyframes video-toggle-press {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.6;
+  animation: bounce 2s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ========================
+   GALLERY
+======================== */
+.gallery {
+  padding: 80px 100px;
+  background-color: #111111;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 24px;
+  transition: opacity 300ms ease-out;
+}
+
+/* Hover ефект — затемнення всіх карток крім активної */
+.gallery-grid:has(.card:hover) .card:not(:hover) {
+  opacity: 0.5;
+  transition: opacity 350ms ease-out;
+}
+
+.gallery-grid:has(.card:hover) .card:hover {
+  transition: transform 350ms ease-out, box-shadow 350ms ease-out;
+}
+
+/* ========================
+   КАРТКА
+======================== */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  cursor: pointer;
+  transform: scale(1);
+  transition:
+    transform 350ms ease-out,
+    box-shadow 350ms ease-out,
+    opacity 350ms ease-out;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
+
+.card-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #1A1A1A;
+  border: 1px solid rgba(200, 192, 176, 0.12);
+}
+
+.card-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 350ms ease-out;
+}
+
+.card:hover .card-thumb video {
+  transform: scale(1.03);
+}
+
+/* ========================
+   ПІДПИС КАРТКИ
+======================== */
+.card-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0 2px;
+}
+
+.card-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(245, 240, 232, 1);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+.card-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(245, 240, 232, 0.6);
+  letter-spacing: 0.5px;
+}
+
+.card-date {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(245, 240, 232, 0.35);
+  letter-spacing: 0.5px;
+}
+
+/* ========================
+   FOOTER
+======================== */
+.footer {
+  border-top: 1px solid rgba(200, 192, 176, 0.15);
+  background-color: #111111;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-inner {
+  width: 100%;
+  padding: 0 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-instagram {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgba(200, 192, 176, 0.6);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 250ms ease-out;
+}
+
+.footer-instagram:hover {
+  color: rgba(200, 192, 176, 1);
+}
+
+.footer-copy {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: rgba(245, 240, 232, 0.3);
+  letter-spacing: 0.5px;
+}
+/* ========================
+   VIDEO OVERLAY
+======================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.96);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 350ms ease-out, visibility 350ms ease-out;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-close {
+  position: fixed;
+  top: 28px;
+  right: 36px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 250ms ease-out, transform 250ms ease-out;
+  padding: 8px;
+  z-index: 1002;
+}
+
+.overlay-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.overlay-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 95vw;
+  max-width: 1400px;
+  align-items: flex-start;
+  z-index: 1001;
+  position: relative;
+}
+
+.overlay-player {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.overlay-video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 6px;
+  background: #0D0D0D;
+  border: 1px solid rgba(200, 192, 176, 0.12);
+  display: block;
+  object-fit: contain;
+}
+
+.overlay-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.overlay-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(245, 240, 232, 1);
+  letter-spacing: 0.3px;
+}
+
+.overlay-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: rgba(245, 240, 232, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.overlay-playlist {
+  width: 240px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 4px;
+}
+
+.playlist-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(245, 240, 232, 0.8);
+  letter-spacing: 0.3px;
+}
+
+.playlist-divider {
+  height: 1px;
+  background: rgba(200, 192, 176, 0.15);
+}
+
+.playlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.playlist-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: background 250ms ease-out, border-color 250ms ease-out;
+}
+
+.playlist-item:hover {
+  background: rgba(200, 192, 176, 0.06);
+  border-color: rgba(200, 192, 176, 0.15);
+}
+
+.playlist-item.active {
+  background: rgba(200, 192, 176, 0.08);
+  border-color: rgba(200, 192, 176, 0.35);
+}
+
+.playlist-thumb {
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  background: #1A1A1A;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.playlist-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlist-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.playlist-item-type {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.9);
+  letter-spacing: 0.5px;
+}
+
+.playlist-item-duration {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: rgba(245, 240, 232, 0.4);
+  letter-spacing: 0.3px;
+}

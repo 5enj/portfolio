@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <nav class="nav">
+      <a href="#gallery" class="btn" data-ua="Роботи" data-en="Works">Роботи</a>
+      <a href="#contact" class="btn" data-ua="Контакти" data-en="Contact">Контакти</a>
+      <button class="btn lang-toggle" id="langToggle">UA / EN</button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline>
+      <source src="videos/hero/hero1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-tint"></div>
+    <div class="hero-overlay"></div>
+    <button class="hero-video-toggle" id="heroVideoToggle" type="button" aria-label="Поставити відео на паузу" data-state="playing">
+      <svg class="hero-video-icon hero-video-icon--play" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M8 5.5v13l10-6.5z" fill="currentColor"/>
+      </svg>
+      <svg class="hero-video-icon hero-video-icon--pause" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 5h3v14H7zm7 0h3v14h-3z" fill="currentColor"/>
+      </svg>
+    </button>
+    <div class="scroll-arrow">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M8 12L16 20L24 12" stroke="#C8C0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-grid">
+
+      <div class="card" data-wedding="wedding1">
+        <div class="card-thumb">
+          <video src="videos/wedding1/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Anna & Sergiy</h2>
+          <p class="card-location">Lviv, Ukraine</p>
+          <p class="card-date">11.07.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding2">
+        <div class="card-thumb">
+          <video src="videos/wedding2/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Maria & Ivan</h2>
+          <p class="card-location">Kyiv, Ukraine</p>
+          <p class="card-date">23.08.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding3">
+        <div class="card-thumb">
+          <video src="videos/wedding3/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Olena & Dmytro</h2>
+          <p class="card-location">Odesa, Ukraine</p>
+          <p class="card-date">05.05.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding4">
+        <div class="card-thumb">
+          <video src="videos/wedding4/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Юрій та Тетяна</h2>
+          <p class="card-location">Жовква, Акварель</p>
+          <p class="card-date">14.09.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding5">
+        <div class="card-thumb">
+          <video src="videos/wedding5/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Natalia & Yuriy</h2>
+          <p class="card-location">Kharkiv, Ukraine</p>
+          <p class="card-date">30.06.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding6">
+        <div class="card-thumb">
+          <video src="videos/wedding6/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Iryna & Bohdan</h2>
+          <p class="card-location">Vinnytsia, Ukraine</p>
+          <p class="card-date">12.10.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding7">
+        <div class="card-thumb">
+          <video src="videos/wedding7/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Daryna & Oleksiy</h2>
+          <p class="card-location">Poltava, Ukraine</p>
+          <p class="card-date">19.07.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding8">
+        <div class="card-thumb">
+          <video src="videos/wedding8/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Viktoria & Artem</h2>
+          <p class="card-location">Dnipro, Ukraine</p>
+          <p class="card-date">02.11.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding9">
+        <div class="card-thumb">
+          <video src="videos/wedding9/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Larysa & Vasyl</h2>
+          <p class="card-location">Uzhhorod, Ukraine</p>
+          <p class="card-date">08.06.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding10">
+        <div class="card-thumb">
+          <video src="videos/wedding10/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Oksana & Mykola</h2>
+          <p class="card-location">Chernivtsi, Ukraine</p>
+          <p class="card-date">21.09.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding11">
+        <div class="card-thumb">
+          <video src="videos/wedding11/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Alina & Roman</h2>
+          <p class="card-location">Zaporizhzhia, Ukraine</p>
+          <p class="card-date">16.08.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding12">
+        <div class="card-thumb">
+          <video src="videos/wedding12/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Yulia & Andriy</h2>
+          <p class="card-location">Ivano-Frankivsk</p>
+          <p class="card-date">27.04.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding13">
+        <div class="card-thumb">
+          <video src="videos/wedding13/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Khrystyna & Pavlo</h2>
+          <p class="card-location">Ternopil, Ukraine</p>
+          <p class="card-date">03.05.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding14">
+        <div class="card-thumb">
+          <video src="videos/wedding14/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Halyna & Serhiy</h2>
+          <p class="card-location">Rivne, Ukraine</p>
+          <p class="card-date">11.10.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding15">
+        <div class="card-thumb">
+          <video src="videos/wedding15/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Tetiana & Oleh</h2>
+          <p class="card-location">Sumy, Ukraine</p>
+          <p class="card-date">25.05.2024</p>
+        </div>
+      </div>
+
+      <div class="card" data-wedding="wedding16">
+        <div class="card-thumb">
+          <video src="videos/wedding16/film.mp4" muted loop playsinline></video>
+        </div>
+        <div class="card-caption">
+          <h2 class="card-names">Maryna & Taras</h2>
+          <p class="card-location">Lutsk, Ukraine</p>
+          <p class="card-date">07.12.2024</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <a href="https://instagram.com/твій_нік" class="footer-instagram" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8C0B0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="#C8C0B0" stroke="none"/>
+        </svg>
+        @твій_нік
+      </a>
+      <p class="footer-copy">© 2026</p>
+    </div>
+  </footer>
+
+  <!-- VIDEO OVERLAY -->
+  <div class="overlay" id="overlay">
+    <button class="overlay-close" id="overlayClose">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8C0B0" stroke-width="1.5" stroke-linecap="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="overlay-inner">
+      <div class="overlay-player">
+        <video class="overlay-video" id="overlayVideo" controls></video>
+        <div class="overlay-info">
+          <h2 class="overlay-names" id="overlayNames"></h2>
+          <p class="overlay-location" id="overlayLocation"></p>
+        </div>
+      </div>
+      <div class="overlay-playlist" id="overlayPlaylist">
+        <h3 class="playlist-title" id="playlistTitle"></h3>
+        <div class="playlist-divider"></div>
+        <div class="playlist-items" id="playlistItems"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
